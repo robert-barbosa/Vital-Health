@@ -22,12 +22,9 @@ O desenvolvimento segue práticas de Engenharia de Software e Modelagem Orientad
 - CSS
 - JavaScript
 
-Projeto acadêmico desenvolvido em equipe.
-Lucas de Freitas Moura
-Luccas Moreira Rodrigues
-Paulo Robert Santos Barbosa
-Ryhan Mendes da Silva
+## Equipe
 
-
+- Lucas de Freitas Moura
+- Luccas Moreira Rodrigues
 - Paulo Robert Santos Barbosa
-- *(adicione os demais integrantes)*
+- Ryhan Mendes da Silva
