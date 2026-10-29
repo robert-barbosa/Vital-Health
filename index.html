@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitalSync</title>
+<link rel="icon" href="assets/icone.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topo">
+  <img src="assets/icone.jpeg" class="icone" alt="">
+  <div><strong>VitalSync</strong><small>Uma interface, um objetivo: a sua saúde.</small></div>
+  <a href="#perfil" id="btnPerfil" class="link" hidden>Editar perfil</a>
+</header>
+
+<main>
+  <!-- TELA 1: Perfil inicial -->
+  <section id="perfil" class="tela" hidden>
+    <div class="painel boas-vindas">
+      <img src="assets/logo.jpeg" alt="Logo VitalSync" class="logo">
+      <h1>Vamos começar</h1>
+      <p class="suave">Informe seus dados para calcular suas metas de água e calorias.</p>
+      <form id="formPerfil">
+        <label>Nome <input id="pNome" required maxlength="40" autocomplete="given-name"></label>
+        <div class="duas">
+          <label>Peso (kg) <input id="pPeso" type="number" min="30" max="300" step="0.1" required></label>
+          <label>Altura (cm) <input id="pAltura" type="number" min="100" max="250" required></label>
+        </div>
+        <label>Objetivo
+          <select id="pObjetivo">
+            <option value="perder">Perder peso</option>
+            <option value="ganhar">Ganhar massa</option>
+            <option value="manter" selected>Manter a saúde</option>
+          </select>
+        </label>
+        <button class="grande-btn" type="submit">Salvar e ir para o painel</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- TELA 2: Dashboard -->
+  <section id="dashboard" class="tela" hidden>
+    <h1 id="saudacao">Seu dia</h1>
+    <div class="grade">
+      <article class="painel agua">
+        <h2>Hidratação</h2>
+        <div class="anel grande" id="anelAgua">
+          <svg viewBox="0 0 120 120"><circle class="trilho" cx="60" cy="60" r="52"/><circle class="prog" cx="60" cy="60" r="52" pathLength="100"/></svg>
+          <div class="centro"><b id="aguaPct">0%</b><span id="aguaTxt"></span></div>
+        </div>
+        <div class="acoes">
+          <button class="btn" data-agua="250">+250 ml</button>
+          <button class="btn" data-agua="500">+500 ml</button>
+          <button class="btn fantasma" data-agua="-250">Desfazer 250 ml</button>
+        </div>
+      </article>
+
+      <article class="painel">
+        <h2>Calorias</h2>
+        <div class="anel" id="anelKcal">
+          <svg viewBox="0 0 120 120"><circle class="trilho" cx="60" cy="60" r="52"/><circle class="prog" cx="60" cy="60" r="52" pathLength="100"/></svg>
+          <div class="centro"><b id="kcalNum">0</b><span id="kcalRot"></span></div>
+        </div>
+        <p class="suave pequeno" id="kcalDet"></p>
+      </article>
+
+      <article class="painel">
+        <h2>Treinos</h2>
+        <div class="anel" id="anelTreino">
+          <svg viewBox="0 0 120 120"><circle class="trilho" cx="60" cy="60" r="52"/><circle class="prog" cx="60" cy="60" r="52" pathLength="100"/></svg>
+          <div class="centro"><b id="treinoNum">0/0</b><span>concluídos</span></div>
+        </div>
+        <p class="suave pequeno" id="treinoDet"></p>
+      </article>
+
+      <article class="painel sono">
+        <h2>Sono</h2>
+        <div class="anel" id="anelSono">
+          <svg viewBox="0 0 120 120"><circle class="trilho" cx="60" cy="60" r="52"/><circle class="prog" cx="60" cy="60" r="52" pathLength="100"/></svg>
+          <div class="centro"><b id="sonoScore">—</b><span>pontos</span></div>
+        </div>
+        <div class="duas">
+          <label>Deitei às <input type="time" id="sDeitar"></label>
+          <label>Levantei às <input type="time" id="sLevantar"></label>
+        </div>
+        <p class="suave pequeno" id="sonoMsg"></p>
+      </article>
+
+      <article class="painel largo">
+        <h2>Hidratação nos últimos 7 dias</h2>
+        <div class="barras" id="barras"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TELA 3: Nutrição -->
+  <section id="nutricao" class="tela" hidden>
+    <h1>Nutrição</h1>
+    <p class="resumo-saldo" id="saldoNutri"></p>
+    <div id="listaNutri"></div>
+  </section>
+
+  <!-- TELA 4: Exercícios -->
+  <section id="treino" class="tela" hidden>
+    <h1>Rotina saudável</h1>
+    <p class="resumo-saldo" id="saldoTreino"></p>
+    <div id="listaTreino"></div>
+  </section>
+</main>
+
+<button class="fab" id="fab" data-agua="250" aria-label="Adicionar 250 ml de água" hidden>+250 ml</button>
+<div class="aviso" id="aviso" role="status"></div>
+
+<nav class="barra" id="barra" hidden>
+  <a href="#dashboard">Painel</a>
+  <a href="#nutricao">Nutrição</a>
+  <a href="#treino">Exercícios</a>
+</nav>
+
+<script src="js/app.js"></script>
+</body>
+</html>
